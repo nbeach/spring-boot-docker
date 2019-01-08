@@ -1,0 +1,12 @@
+version: '2.1'
+services:
+  app:
+    image: spring-boot-app:latest
+    build: .
+    healthcheck:
+      test: curl --fail -s http://localhost:8080/ || exit 1
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
+

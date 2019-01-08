@@ -1,16 +1,22 @@
-version: '3'
+version: '2.1'
 services:
   foo:
-    image: spring-boot-app:latest
-    ports:
-    - "8080:8080"
+     extends:
+       file: app-compose.yml
+       service: app
+     ports:
+     - "8080:8080"
 
   bar:
-    image: spring-boot-app:latest
+    extends:
+      file: app-compose.yml
+      service: app
     ports:
     - "8081:8080"
 
   baz:
-    image: spring-boot-app:latest
+    extends:
+      file: app-compose.yml
+      service: app
     ports:
     - "8082:8080"
